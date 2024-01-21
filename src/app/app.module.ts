@@ -19,6 +19,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { HomeComponent } from './home';
 
 @NgModule({
     imports: [
@@ -39,6 +40,7 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     declarations: [
         AppComponent,
         LoginComponent,
+        HomeComponent,
         AlertComponent,
         TasksComponent,
         LoansComponent,

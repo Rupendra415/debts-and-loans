@@ -4,19 +4,21 @@
     Remove Rows
   </button>
   <button class="button-add-row" mat-button (click)="addRow()">Add Row</button>
+  <button class="button-add-row" mat-button (click)="export()">Export</button>
+  <input type="file" (change)="onFileChange($event)" multiple="false" />
 </article>
-<table mat-table [dataSource]="dataSource">
+<table mat-table [dataSource]="dataSource" id="dataTable">
   <ng-container [matColumnDef]="col.key" *ngFor="let col of columnsSchema">
   <th mat-header-cell *matHeaderCellDef [ngSwitch]="col.key">
-  <span *ngSwitchCase="'isSelected'">
-    <mat-checkbox
-      (change)="selectAll($event)"
-      [checked]="isAllSelected()"
-      [indeterminate]="!isAllSelected() && isAnySelected()">
-    </mat-checkbox>
-  </span>
-  <span *ngSwitchDefault>{{ col.label }}</span>
-</th>
+    <span *ngSwitchCase="'isSelected'">
+      <mat-checkbox
+        (change)="selectAll($event)"
+        [checked]="isAllSelected()"
+        [indeterminate]="!isAllSelected() && isAnySelected()">
+      </mat-checkbox>
+    </span>
+    <span *ngSwitchDefault>{{ col.label }}</span>
+  </th>
     <td mat-cell *matCellDef="let element">
       <div [ngSwitch]="col.type" *ngIf="!element.isEdit">
         <ng-container *ngSwitchCase="'isSelected'">
